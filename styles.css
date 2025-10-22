@@ -1,0 +1,272 @@
+/* ===== 全体 ===== */
+body {
+    font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background-color: #fffaf3;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: center;
+}
+
+/* ===== タイトル・ヘッダー ===== */
+h1 {
+    background-color: #ffb347;
+    color: white;
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.4rem;
+    position: relative;
+}
+
+/* ===== フローティング・カートボタン ===== */
+#open-cart-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: #eb975b;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s, transform 0.15s;
+    z-index: 900;
+}
+
+#open-cart-btn:hover {
+    background-color: #e68744;
+    transform: scale(1.05);
+}
+
+/* ===== カート個数バッジ ===== */
+#cart-count {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    font-weight: bold;
+}
+
+/* ===== カートボタン内のアイコン用 ===== */
+#open-cart-btn i {
+    pointer-events: none;
+}
+
+/* ===== スマホ対応でやや小さめに ===== */
+@media (max-width: 480px) {
+    #open-cart-btn {
+        width: 54px;
+        height: 54px;
+        font-size: 1.4rem;
+        bottom: 1.2rem;
+        right: 1.2rem;
+    }
+
+    #cart-count {
+        top: 6px;
+        right: 6px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ===== メニュー一覧 ===== */
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+    justify-items: center;
+}
+
+/* ===== メニュー項目 ===== */
+.menu-item {
+    background-color: #fff;
+    border: 2px solid #ffb347;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 180px;
+    padding: 1rem 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+}
+
+.menu-item h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    color: #d17b00;
+}
+
+.menu-item button {
+    display: block;
+    width: 90%;
+    margin: 0.4rem auto;
+    padding: 0.5rem 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.with {
+    background-color: #ff8c42;
+    color: #fff;
+}
+
+.with:hover {
+    background-color: #ff7b1a;
+}
+
+.without {
+    background-color: #e5e5e5;
+    color: #333;
+}
+
+.without:hover {
+    background-color: #ccc;
+}
+
+/* ===== カートオーバーレイ ===== */
+.cart-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* ===== カート内容 ===== */
+.cart-content {
+    background-color: #fff;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 360px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    text-align: center;
+    animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ===== 閉じるボタン ===== */
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+    background-color: #ddd;
+}
+
+/* ===== カート内アイテム ===== */
+.cart-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+}
+
+.cart-item button {
+    background-color: #ff8c42;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.cart-item button:hover {
+    background-color: #ff7b1a;
+}
+
+/* ===== 合計金額 ===== */
+.cart-summary {
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* ===== 登録ボタン ===== */
+.register-btn {
+    margin-top: 0.8em;
+    padding: 0.7rem 1.5rem;
+    background-color: #ff8c42;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 80%;
+}
+
+.register-btn:hover {
+    background-color: #ff7b1a;
+}
+
+/* ===== スマホ最適化 ===== */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    .menu-list {
+        gap: 0.8rem;
+    }
+
+    .menu-item {
+        padding: 0.8rem;
+    }
+
+    .menu-item h2 {
+        font-size: 1rem;
+    }
+
+    .menu-item button {
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チュロス注文ページ</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <h1>
+        チュロス注文ページ
+        <button id="open-cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </button>
+
+    </h1>
+
+    <!-- カートオーバーレイ -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-content">
+            <button class="close-btn" id="close-cart-btn">×</button>
+            <h2>カート</h2>
+            <div id="cart-items"></div>
+            <div class="cart-summary">
+                合計金額: <span id="total-price">0</span> 円
+            </div>
+            <button class="register-btn" id="register-btn">登録</button>
+        </div>
+    </div>
+
+    <!-- メニュー一覧 -->
+    <div class="menu-list" id="menu-list"></div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
