@@ -4,40 +4,709 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>チュロス注文ページ</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="文化祭で最高のチュロス体験を！揚げたて、幸せ。こだわりのチュロスをお楽しみください。">
+    <title>マジカルチュ♡リポップ</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <h1>
-        チュロス注文ページ
-        <button id="open-cart-btn">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-count">0</span>
-        </button>
-
-    </h1>
-
-    <!-- カートオーバーレイ -->
-    <div class="cart-overlay" id="cart-overlay">
-        <div class="cart-content">
-            <button class="close-btn" id="close-cart-btn">×</button>
-            <h2>カート</h2>
-            <div id="cart-items"></div>
-            <div class="cart-summary">
-                合計金額: <span id="total-price">0</span> 円
-            </div>
-            <button class="register-btn" id="register-btn">登録</button>
-        </div>
+    <!-- Loading Sparkle Animation -->
+    <div id="loading-screen">
+        <div class="stars-container"></div>
+        <img src="img/マジカルチュロリポップロゴ.png" alt="ロゴ" class="loading-logo">
+        <div class="audio-warning">このサイトでは音声が流れることがあります。音量に注意してください。</div>
     </div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-cookie-bite"></i>
+                <img src="img/マジカルチュロリポップロゴ.png" alt="マジカルチュロリポップ" class="hedderRogo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">ホーム</a></li>
+                <li><a href="#menu" class="nav-link">メニュー</a></li>
+                <li><a href="#info" class="nav-link">店舗情報</a></li>
+                <li><a href="#story" class="nav-link">私たちについて</a></li>
+                <li><a href="#secret" class="nav-link">♡♡♡</a></li>
+                <!-- <li><a href="#contact" class="nav-link">お問い合わせ</a></li> -->
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <!-- メニュー一覧 -->
-    <div class="menu-list" id="menu-list"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="hero-pattern"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge" data-aos="fade-down">
+                <i class="fas fa-star"></i>
+                理工祭2025
+            </div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+                きゅん♡をお届け♪
+            </h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">
+                文化祭で最高のチュロス体験を
+            </p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
+                <a href="#menu" class="btn btn-primary">
+                    <span>メニューを見る</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#info" class="btn btn-secondary">
+                    <span>店舗情報</span>
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown" data-aos="fade-up" data-aos-delay="800">
+                <div class="countdown-title">文化祭まで</div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">日</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">時間</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">分</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">秒</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>スクロール</span>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-churros">
+            <div class="churro churro-1"></div>
+            <div class="churro churro-2"></div>
+            <div class="churro churro-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>揚げたて提供</h3>
+                    <p>ご注文を受けてから揚げるので、いつでもアツアツ</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>お店が混んでても</h3>
+                    <p>揚げたてを提供できるように、スマホで整理券を配布してます</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>こだわりの素材</h3>
+                    <p>厳選した材料で、カリモチ食感を実現</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Menu</span>
+                <h2 class="section-title">チュロリポップメニュー</h2>
+                <p class="section-description">好きな魔法を選んでね♪</p>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="menu-card-image">
+                        <div class="menu-image-placeholder churro-plain">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <div class="menu-badge">人気No.1</div>
+                    </div>
+                    <div class="menu-card-content">
+                        <h3 class="menu-title">～初級魔法～<br>プレーンチュロリポップ</h3>
+                        <p class="menu-description">何事も基本が大事！<br>そんな素材の味を最大限楽しめる一品。</p>
+                        <div class="menu-footer">
+                            <span class="menu-price">¥150</span>
+                            <button class="menu-btn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="menu-card-image">
+                        <div class="menu-image-placeholder churro-sugar">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <div class="menu-badge recommend">おすすめ</div>
+                    </div>
+                    <div class="menu-card-content">
+                        <h3 class="menu-title">～白魔法～<br>あまあまシュガーチュロリポップ</h3>
+                        <p class="menu-description">ご主人様のために甘いのいっぱいかけちゃいました♡</p>
+                        <div class="menu-footer">
+                            <span class="menu-price">¥150</span>
+                            <button class="menu-btn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="menu-card-image">
+                        <div class="menu-image-placeholder churro-cinnamon">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+
+                    </div>
+                    <div class="menu-card-content">
+                        <h3 class="menu-title">～スパイス魔法～<br>恋するシナモンチュロリポップ</h3>
+                        <p class="menu-description">香り高いシナモンと甘いシュガーの黄金コンビ<br>あなたの心を離さない♡</p>
+                        <div class="menu-footer">
+                            <span class="menu-price">¥150</span>
+                            <button class="menu-btn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="menu-card-image">
+                        <div class="menu-image-placeholder churro-cocoa">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                    </div>
+                    <div class="menu-card-content">
+                        <h3 class="menu-title">～黒魔法～<br>誘惑のココアチュロリポップ</h3>
+                        <p class="menu-description">ココアの甘さが後を引く<br>きっともう一つ買いたくなっちゃうゾ♡</p>
+                        <div class="menu-footer">
+                            <span class="menu-price">¥150</span>
+                            <button class="menu-btn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="menu-card-image">
+                        <div class="menu-image-placeholder churro-assort">
+                            <i class="fas fa-cookie-bite"></i>
+                            <div class="menu-badge special">特別</div>
+                        </div>
+                    </div>
+                    <div class="menu-card-content">
+                        <h3 class="menu-title">～融合魔法～<br>ぜーんぶのせ♡<br>フルアソートチュロリポップ</h3>
+                        <p class="menu-description">欲張りなご主人様にはこれ！</p>
+                        <div class="menu-footer">
+                            <span class="menu-price">¥150</span>
+                            <button class="menu-btn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="menu-card-image">
+                        <div class="menu-image-placeholder churro-source">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                    </div>
+                    <div class="menu-card-content">
+                        <h3 class="menu-title">～付与魔法～<br>エンチャントチョコソース</h3>
+                        <p class="menu-description">あなたの心にエンチャント♡</p>
+                        <div class="menu-footer">
+                            <span class="menu-price">¥10</span>
+                            <button class="menu-btn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Counter -->
+            <!-- <div class="stats" data-aos="fade-up">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">期待される来場者数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-cookie-bite"></i></div>
+                    <div class="stat-number" data-count="1000">0</div>
+                    <div class="stat-label">準備したチュロス数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-smile"></i></div>
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">満足度（%）</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+            <!-- Info Section -->
+            <section class="info" id="info">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <span class="section-badge">Information</span>
+                        <h2 class="section-title">店舗情報</h2>
+                        <p class="section-description">ぜひお気軽にお越しください</p>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-card" data-aos="fade-right">
+                            <div class="info-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3>開催日程</h3>
+                            <div class="info-details">
+                                <p><strong>2025年10月25日（土）</strong></p>
+                                <p>12:00 - 16:40</p>
+                                <p><strong>2025年10月26日（日）</strong></p>
+                                <p>10:00 - 16:30</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>営業時間</h3>
+                            <div class="info-details">
+                                <p><strong>2025年10月25日（土）</strong></p>
+                                <p>12:00 - 16:00</p>
+                                <p><strong>2025年10月26日（日）</strong></p>
+                                <p>10:00 - 15:00</p>
+                                <p class="info-note">※売り切れ次第終了</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-aos="fade-left" data-aos-delay="200">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>出店場所</h3>
+                            <div class="info-details">
+                                <p><strong>国際理工カレッジ</strong></p>
+                                <p>KRCドーム 6ブース</p>
+                                <p>客席中央付近</p>
+                                <p class="info-highlight">メイドさんが目印です♡</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+
+                    <div class="map-container" data-aos="fade-up">
+                        <div class="map-placeholder school-map"></div>
+                    </div>
 
 
+                    <!-- Access Info -->
+                    <div class="access-info" data-aos="fade-up">
+                        <h3><i class="fas fa-train"></i> アクセス方法</h3>
+                        <div class="access-grid">
+                            <div class="access-item">
+                                <strong>電車</strong>
+                                <p>稲毛駅から徒歩15分</p>
+                            </div>
+                            <div class="access-item">
+                                <strong>モノレール</strong>
+                                <p>穴川駅から徒歩3分</p>
+                            </div>
+                            <div class="access-item">
+                                <strong>駐車場</strong>
+                                <p>駐車場はありません。公共交通機関をご利用ください</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story Section -->
+            <section class="story" id="story">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <span class="section-badge">Our Story</span>
+                        <h2 class="section-title">私たちのこだわり</h2>
+                        <p class="section-description">最高のチュロスをお届けするために</p>
+                    </div>
+
+                    <div class="story-content">
+                        <div class="story-text" data-aos="fade-right">
+                            <h3>チュロスへの想い</h3>
+                            <p>
+                                私たちクラス一同は、文化祭で来場者の皆様に最高の笑顔と美味しさをお届けしたいという想いから、チュロス模擬店を立ち上げました。
+                            </p>
+                            <p>
+                                何度も試作を重ね、外はカリッと、中はふんわりとした理想の食感を実現。揚げたての温かさと、選び抜いたトッピングの組み合わせにこだわりました。
+                            </p>
+                            <p>
+                                一本一本、心を込めて作ります。文化祭の思い出に、ぜひ私たちのチュロスをお楽しみください！
+                            </p>
+                            <div class="story-signature">
+                                <p>- 2年A組 チュロスチーム一同 -</p>
+                            </div>
+                        </div>
+
+                        <div class="story-images" data-aos="fade-left">
+                            <div class="story-image-grid">
+                                <div class="story-image story-img-1">
+                                    <div class="image-placeholder">
+                                        <img src="img/syugo.jpg" alt="チームメンバー" class="story-photo active">
+                                        <div class="overlay">
+                                            <p>チームメンバー</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="story-image story-img-2">
+                                    <div class="image-placeholder">
+                                        <img src="img/shisaku1.jpg" alt="試作の様子" class="story-photo active">
+                                        <img src="img/shisaku2.jpg" alt="試作の様子" class="story-photo">
+                                        <img src="img/shisaku3.jpg" alt="試作の様子" class="story-photo">
+                                        <img src="img/shisaku4.jpg" alt="試作の様子" class="story-photo">
+                                        <div class="overlay">
+                                            <p>試作の様子</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="story-image story-img-3">
+                                    <div class="image-placeholder">
+                                        <i class="fas fa-fire"></i>
+                                        <p>揚げたて</p>
+                                    </div>
+                                </div>
+                                <div class="story-image story-img-4">
+                                    <div class="image-placeholder">
+                                        <i class="fas fa-heart"></i>
+                                        <p>準備風景</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Members (Optional) -->
+                    <div class="team-section" data-aos="fade-up">
+                        <h3 class="team-title">チームメンバー</h3>
+                        <div class="team-grid">
+                            <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h4>調理チーム</h4>
+                                <p>揚げたての美味しさをお届け</p>
+                            </div>
+                            <div class="team-member" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h4>接客チーム</h4>
+                                <p>笑顔でおもてなし</p>
+                            </div>
+                            <div class="team-member" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h4>企画チーム</h4>
+                                <p>最高の体験を演出</p>
+                            </div>
+                            <div class="team-member" data-aos="zoom-in" data-aos-delay="400">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h4>広報チーム</h4>
+                                <p>魅力を発信</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <!-- <section class="reviews">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Reviews</span>
+                <h2 class="section-title">お客様の声</h2>
+                <p class="section-description">過去の文化祭での感想（イメージ）</p>
+            </div>
+
+            <div class="reviews-slider">
+                <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        「揚げたてで本当に美味しかった！外はサクサク、中はもちもちで最高でした。」
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>高校生 A さん</h4>
+                            <p>2024年度 文化祭</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        「シナモンシュガーが絶品！子供も大喜びでした。また来年も楽しみにしています。」
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>保護者 B さん</h4>
+                            <p>2024年度 文化祭</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        「チョコレートチュロスが忘れられない美味しさ。学生さんの一生懸命な姿にも感動しました。」
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>卒業生 C さん</h4>
+                            <p>2024年度 文化祭</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+            <!-- Contact Section -->
+            <!-- <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Contact</span>
+                <h2 class="section-title">お問い合わせ・SNS</h2>
+                <p class="section-description">最新情報はSNSでチェック！</p>
+            </div>
+
+            <div class="contact-content"> -->
+            <!-- SNS Links -->
+            <!-- <div class="social-links" data-aos="fade-up">
+                    <h3>Follow Us</h3>
+                    <p>当日の様子や最新情報を発信中！</p>
+                    <div class="social-buttons">
+                        <a href="#" class="social-btn instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" class="social-btn twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" class="social-btn line">
+                            <i class="fab fa-line"></i>
+                            <span>LINE</span>
+                        </a>
+                        <a href="#" class="social-btn tiktok">
+                            <i class="fab fa-tiktok"></i>
+                            <span>TikTok</span>
+                        </a>
+                    </div>
+                </div> -->
+
+            <!-- Contact Form -->
+            <!-- <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <h3>お問い合わせフォーム</h3>
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">
+                    <i class="fas fa-user"></i>
+                    お名前
+                </label>
+                <input type="text" id="name" name="name" required placeholder="山田 太郎">
+            </div>
+            <div class="form-group">
+                <label for="email">
+                    <i class="fas fa-envelope"></i>
+                    メールアドレス
+                </label>
+                <input type="email" id="email" name="email" required placeholder="example@email.com">
+            </div>
+            <div class="form-group">
+                <label for="subject">
+                    <i class="fas fa-tag"></i>
+                    件名
+                </label>
+                <select id="subject" name="subject" required>
+                    <option value="">選択してください</option>
+                    <option value="reservation">事前予約について</option>
+                    <option value="menu">メニューについて</option>
+                    <option value="allergy">アレルギー対応について</option>
+                    <option value="other">その他</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">
+                    <i class="fas fa-comment"></i>
+                    メッセージ
+                </label>
+                <textarea id="message" name="message" rows="5" required placeholder="お問い合わせ内容をご記入ください"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+                <span>送信する</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+    </div> -->
+
+            <!-- Contact Info -->
+            <div class="contact-info" data-aos="fade-up">
+                <div class="contact-info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>お店が混んでても...</h4>
+                        <p>揚げたてをすぐにお届けできるよう整理券を配布しております</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Ticket Section -->
+    <section class="secret" id="secret">
+        <div class="ticket-inner" data-aos="fade-up">
+            <div class="ticket-header">
+                ☆ マジカルチュロリポップ特典チケット ☆
+            </div>
+            <p class="ticket-text">
+                このチケットをお会計の時に見せると…<br>
+                <strong>チュロリポップをメイドのあ～ん♡サービス付きでおひとつプレゼント♪</strong>
+            </p>
+            <div class="ticket-footer">
+                <span>理工祭2025　2年A組ブースにて有効</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <!-- <i class="fas fa-cookie-bite"></i> -->
+                    <img src="img/マジカルチュロリポップロゴ.png" alt="マジカルチュロリポップ" class="footreRogo1">
+                    <p>理工祭2025 - 2年A組</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">ホーム</a></li>
+                        <li><a href="#menu">メニュー</a></li>
+                        <li><a href="#info">店舗情報</a></li>
+                        <li><a href="#story">私たちについて</a></li>
+                        <!-- <li><a href="#contact">お問い合わせ</a></li> -->
+                    </ul>
+                </div>
+                <!-- <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-line"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div> -->
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 マジカルチュロリポップ. All rights reserved.</p>
+                <p class="footer-note">Made with <i class="fas fa-heart"></i> by 2年A組</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
 
